@@ -1,742 +1,388 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título da página para SEO e exibição no navegador -->
     <title>Comerciais Top - Locução Profissional e Produção de Áudio</title>
-    <!-- Descrição para SEO -->
-    <meta name="description" content="Locuções profissionais com entrega rápida e qualidade incomparável. Mais de 300 locutores 24h por dia.">
-    
-    <!-- Tailwind CSS -->
+    <meta name="description" content="Comerciais Top oferece serviços de locução profissional e produção de áudio para revendedores, produtores, comércios e eventos. Plataforma 24h com mais de 300 locutores. Agilidade e qualidade garantidas.">
+    <meta name="keywords" content="locução profissional, produção de áudio, voz para anúncios, gravação em off, vinhetas, jingle, banco de vozes, locutores, estúdio de áudio, áudio para publicidade, locução 24h, locução urgente">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Inclui o CDN do Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons (defer loading for performance) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-
+    <script>
+        // Configuração personalizada do Tailwind CSS para incluir as cores da marca
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#1c3faa', /* Cor principal da marca (azul escuro) */
+                        'button-main': '#d32929', /* Cor para botões principais (vermelho) */
+                        'button-secondary': '#91c714', /* Cor para botões secundários (verde) */
+                        'neutral-gray': '#718096', /* Tom de cinza neutro */
+                        'yellow-accent': '#fbc500', /* Cor de destaque (amarelo) */
+                        'light-gray': '#e2e8f0', /* Cinza claro para seções de fundo */
+                        'white': '#ffffff', /* Branco */
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'], /* Fonte Inter para todo o site */
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Estilos personalizados para aplicar a fonte Poppins */
+        /* Estilos globais para a fonte e cor de fundo */
         body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Fundo branco para todo o site */
         }
-
-        /* Nova paleta de cores para um visual mais claro e moderno */
-        :root {
-            --color-primary-blue: #2563EB; /* Blue-600 */
-            --color-primary-green: #10B981; /* Green-500 */
-            --color-dark-text: #333333;
-            --color-light-bg: #F9FAFB; /* Gray-50 */
-            --color-medium-gray: #E5E7EB; /* Gray-200 */
-            --color-dark-gray: #1F2937; /* Gray-800 */
-            --color-very-dark-gray: #111827; /* Gray-900 */
+        /* Estilo para a seção hero (capa fullscreen) */
+        .hero-section {
+            /* Imagem de placeholder sem texto, apenas cor sólida */
+            background-image: url('https://placehold.co/1920x1080/1c3faa/1c3faa');
+            background-size: cover; /* A imagem cobre todo o elemento */
+            background-position: center; /* Centraliza a imagem */
+            position: relative; /* Necessário para posicionar o overlay */
+            z-index: 0; /* Garante que o overlay fique acima da imagem de fundo */
         }
-
-        .bg-primary-blue { background-color: var(--color-primary-blue); }
-        .text-primary-blue { color: var(--color-primary-blue); }
-        .bg-primary-green { background-color: var(--color-primary-green); }
-        .text-primary-green { color: var(--color-primary-green); }
-        .text-dark-text { color: var(--color-dark-text); }
-        .bg-light-bg { background-color: var(--color-light-bg); }
-        .bg-medium-gray { background-color: var(--color-medium-gray); }
-        .bg-dark-gray { background-color: var(--color-dark-gray); }
-        .bg-very-dark-gray { background-color: var(--color-very-dark-gray); }
-
-        /* Fundo da seção Hero - otimizado com imagem estática e overlay */
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x1080/1A3D5D'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        /* Overlay na seção hero para dar uma camada envolvente */
+        .hero-overlay {
+            background-color: rgba(28, 63, 170, 0.7); /* primary color com 70% de transparência */
         }
-
-        /* Gradiente para botões e destaques - ajustado para a nova paleta */
-        .brand-gradient-new {
-            background: linear-gradient(90deg, var(--color-primary-blue), var(--color-primary-green));
+        /* Botão flutuante do WhatsApp */
+        .whatsapp-button {
+            position: fixed; /* Posição fixa na tela */
+            bottom: 20px; /* 20px do fundo */
+            right: 20px; /* 20px da direita */
+            z-index: 1000; /* Garante que fique acima de outros elementos */
+            background-color: #25D366; /* Verde do WhatsApp */
+            color: white;
+            border-radius: 9999px; /* Totalmente redondo */
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+            transition: transform 0.3s ease; /* Transição suave ao passar o mouse */
         }
-        .brand-gradient-new-hover:hover {
-            background: linear-gradient(90deg, #1D4ED8, #059669); /* Tons ligeiramente mais escuros no hover */
+        .whatsapp-button:hover {
+            transform: scale(1.05); /* Efeito de escala ao passar o mouse */
         }
-        
-        /* Estilo específico para o botão flutuante do WhatsApp - ajustado para o novo tema */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: var(--color-primary-green); /* Usa o novo tom de verde */
-            color: #FFF;
-            border-radius: 50%; /* Transforma em um círculo perfeito */
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px rgba(0,0,0,0.3); /* Sombra sutil */
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease-in-out;
+        /* Estilos para o carrossel de depoimentos */
+        .carousel-container {
+            overflow: hidden; /* Esconde itens fora da visualização */
+            position: relative;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
+        .carousel-inner {
+            display: flex; /* Permite que os itens fiquem lado a lado */
+            transition: transform 0.5s ease-in-out; /* Transição suave para a mudança de slide */
         }
-
-        /* Estilo para o ícone de seta da FAQ (acordeão) */
-        .faq-toggle-icon {
-            transition: transform 0.3s ease;
+        .carousel-item {
+            min-width: 100%; /* Cada item ocupa 100% da largura do container */
+            box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+            padding: 1.5rem;
         }
-        .faq-toggle-icon.rotated {
-            transform: rotate(180deg);
+        .carousel-button {
+            position: absolute; /* Botões de navegação posicionados absolutamente */
+            top: 50%; /* Centraliza verticalmente */
+            transform: translateY(-50%); /* Ajuste fino para centralização */
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            z-index: 10; /* Acima dos itens do carrossel */
         }
-
-        /* Removido a altura fixa para o iframe, permitindo que ele se adapte ao aspect ratio do pai */
-        iframe {
-            max-width: 100%;
+        .carousel-button.prev {
+            left: 10px; /* Botão anterior à esquerda */
+        }
+        .carousel-button.next {
+            right: 10px; /* Botão próximo à direita */
         }
     </style>
 </head>
-<body class="bg-light-bg text-dark-text">
+<body class="font-inter text-gray-800">
 
-    <!-- Cabeçalho -->
-    <header class="bg-very-dark-gray fixed top-0 left-0 right-0 z-50 shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#inicio" class="text-2xl font-bold text-white tracking-wider" aria-label="Comerciais Top - Ir para o início">
-                Comerciais <span class="text-primary-blue">Top</span>
-            </a>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#inicio" class="text-white hover:text-gray-300 transition duration-300">Início</a>
-                <a href="#servicos" class="text-white hover:text-gray-300 transition duration-300">Serviços</a>
-                <a href="#precos" class="text-white hover:text-gray-300 transition duration-300">Preços</a>
-                <a href="#demonstracoes" class="text-white hover:text-gray-300 transition duration-300">Demonstrações</a>
-                <a href="#faq" class="text-white hover:text-gray-300 transition duration-300">FAQ</a>
-                <a href="https://paineldegravacao.com.br/comerciaistop/login" target="_blank" class="text-white hover:text-gray-300 transition duration-300" aria-label="Acessar Painel de Gravação">Acessar</a> 
-                <!-- Instagram: Somente o ícone com o link -->
-                <a href="https://www.instagram.com/comerciais.top/" target="_blank" class="text-white hover:text-gray-300 transition duration-300" aria-label="Visitar nosso Instagram">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-semibold py-2 px-5 rounded-full transition duration-300 shadow-lg" aria-label="Fazer Pedido de Gravação">Fazer Pedido</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Abrir menu de navegação">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        <!-- Menu Mobile -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-gray">
-            <a href="#inicio" class="block py-3 px-6 text-white hover:bg-gray-700">Início</a>
-            <a href="#servicos" class="block py-3 px-6 text-white hover:bg-gray-700">Serviços</a>
-            <a href="#precos" class="block py-3 px-6 text-white hover:bg-gray-700">Preços</a>
-            <a href="#demonstracoes" class="block py-3 px-6 text-white hover:bg-gray-700">Demonstrações</a>
-            <a href="#faq" class="block py-3 px-6 text-white hover:bg-gray-700">FAQ</a>
-            <a href="https://paineldegravacao.com.br/comerciaistop/login" target="_blank" class="block py-3 px-6 text-white hover:bg-gray-700">Acessar</a>
-            <a href="https://www.instagram.com/comerciais.top/" target="_blank" class="block py-3 px-6 text-white hover:bg-gray-700" aria-label="Visitar nosso Instagram">
-                <i class="fab fa-instagram mr-2"></i> Instagram
-            </a>
-            <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="block py-3 px-6 text-white brand-gradient-new hover:bg-gray-700 font-semibold rounded-md" aria-label="Fazer Pedido de Gravação">Fazer Pedido</a>
-        </div>
+    <!-- Cabeçalho / Barra de Navegação -->
+    <header class="bg-primary text-white p-4 shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <!-- Nome do Site com destaque -->
+            <div class="text-3xl md:text-4xl font-extrabold tracking-wide mb-4 md:mb-0">
+                Comerciais Top
+            </div>
+            <ul class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                <li><a href="https://paineldegravacao.com.br/comerciaistop/lista-locutores" target="_blank" class="hover:text-yellow-accent transition duration-300">Nossas Vozes</a></li>
+                <li><a href="https://comerciaistop.com.br/servicos" class="hover:text-yellow-accent transition duration-300">Serviços</a></li>
+                <li><a href="https://comerciaistop.com.br/termos" class="hover:text-yellow-accent transition duration-300">Termos de Uso</a></li>
+                <li><a href="https://comerciaistop.com.br/precos" class="hover:text-yellow-accent transition duration-300">Preços</a></li>
+                <li><a href="https://comerciaistop.com.br/faq" class="hover:text-yellow-accent transition duration-300">Dúvidas Frequentes</a></li>
+                <!-- Novo link de Login -->
+                <li>
+                    <a href="https://paineldegravacao.com.br" target="_blank" class="hover:text-yellow-accent transition duration-300">Login</a>
+                </li>
+                <li>
+                    <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="bg-button-main text-white px-6 py-2 rounded-full font-semibold hover:bg-red-700 transition duration-300 shadow-lg">
+                        Cadastre-se Grátis
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Seção Hero -->
-    <section id="inicio" class="hero-bg min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6 text-center py-12 md:py-24 relative z-10">
-            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 md:mb-8">A voz certa para seu negócio brilhar.</h1>
-            <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 md:mb-10">Locuções profissionais com entrega rápida e qualidade incomparável.</p>
-            <p class="text-md md:text-lg text-gray-200 max-w-3xl mx-auto mb-10 md:mb-12">Mais de 300 locutores disponíveis 24h por dia. Plataforma automatizada, entrega rápida e atendimento em todo Brasil.</p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <!-- Botão "Ouvir Demonstrações" (agora primeiro) -->
-                <a href="https://paineldegravacao.com.br/comerciaistop/lista-locutores" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-md inline-block" aria-label="Ouvir Demonstrações de Voz">
-                    Ouvir Demonstrações <i class="fas fa-headphones-alt ml-2"></i>
+    <!-- Seção Hero (Capa Fullscreen) -->
+    <section class="hero-section h-screen flex items-center justify-center text-center text-white relative">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="container mx-auto px-4 py-24 relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                Sua Mensagem, Nossa Voz, Impacto Imediato.
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+                Agilidade imbatível, com locução Off em até 10 minutos! Nossa plataforma funciona 24h por dia, com locutores profissionais de plantão, inclusive nos finais de semana e feriados.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://paineldegravacao.com.br/comerciaistop/lista-locutores" target="_blank" class="bg-button-secondary text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-green-700 transition duration-300 shadow-xl w-full sm:w-auto">
+                    Demonstrações de Voz
                 </a>
-                <!-- Botão "Comece agora" (agora segundo) -->
-                <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-2xl inline-block" aria-label="Comece agora e cadastre-se">
-                    Comece agora <i class="fas fa-arrow-right ml-2"></i>
+                <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="bg-button-main text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-red-700 transition duration-300 shadow-xl w-full sm:w-auto">
+                    Cadastre-se Grátis
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Sobre a Comerciais Top -->
-    <section id="sobre" class="py-20 bg-white shadow-inner">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-text">Sobre a Comerciais Top</h2>
-                <div class="w-24 h-1 brand-gradient-new mx-auto mt-4 rounded"></div>
-            </div>
-            <!-- Conteúdo da seção "Sobre" com texto e ícones -->
-            <div class="flex flex-col lg:flex-row lg:items-start lg:space-x-12">
-                <!-- Coluna de Texto -->
-                <div class="lg:w-1/2 mb-10 lg:mb-0 text-gray-700">
-                    <p class="mt-4 text-lg leading-relaxed">
-                        A Comerciais Top é uma produtora de áudio com atendimento em todo o Brasil desde 2008. Com um banco de mais de 300 locutores profissionais — vozes masculinas, femininas e infantis — oferecemos uma experiência de gravação ágil, versátil e de alta qualidade.
-                    </p>
-                    <p class="mt-4 text-lg leading-relaxed">
-                        É importante destacar que **todos os nossos locutores são pessoas reais; não utilizamos vozes robotizadas ou sintéticas**, garantindo autenticidade e naturalidade em cada gravação.
-                    </p>
-                    <p class="mt-4 text-lg leading-relaxed">
-                        Nossa plataforma 100% online funciona 24 horas por dia. Você pode fazer pedidos, comprar créditos com pagamento via PIX ou Cartão de Crédito, acompanhar o status e receber sua locução em minutos.
+    <!-- Seção: Nossas Vantagens -->
+    <section class="py-16 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-primary mb-4">✨ Nossas Vantagens</h2>
+            <p class="text-lg text-center text-neutral-gray mb-12 max-w-3xl mx-auto">Descubra o que nos torna a escolha ideal para suas necessidades de locução e produção de áudio.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Vantagem 1: Locutores Profissionais -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-5xl text-yellow-accent mb-6">
+                        <!-- Ícone de microfone (SVG ou Emoji) -->
+                        🎤
+                    </div>
+                    <h3 class="text-2xl font-semibold text-primary mb-4">Locutores Profissionais</h3>
+                    <p class="text-neutral-gray text-lg">
+                        Banco de vozes composto por mais de 300 locutores profissionais, preparados para produzir com agilidade e qualidade incomparáveis.
                     </p>
                 </div>
-                <!-- Coluna de Ícones (2x2), com blocos de tamanho reduzido -->
-                <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <!-- Cartão de Ícone: Experiência -->
-                    <div class="bg-light-bg p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 border-t-4 border-primary-blue">
-                        <i class="fas fa-award text-4xl text-primary-blue mb-3"></i>
-                        <h3 class="text-lg font-semibold text-dark-text">Experiência</h3>
+                <!-- Vantagem 2: Plantão fim de semana e Feriados -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-5xl text-yellow-accent mb-6">
+                        <!-- Ícone de relógio (SVG ou Emoji) -->
+                        ⏰
                     </div>
-                    <!-- Cartão de Ícone: Automação -->
-                    <div class="bg-light-bg p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 border-t-4 border-primary-green">
-                        <i class="fas fa-robot text-4xl text-primary-green mb-3"></i>
-                        <h3 class="text-lg font-semibold text-dark-text">Automação</h3>
+                    <h3 class="text-2xl font-semibold text-primary mb-4">Plantão 24h, Fim de Semana e Feriados</h3>
+                    <p class="text-neutral-gray text-lg">
+                        Locutores de plantão disponíveis 24 horas por dia, 7 dias por semana, inclusive nos finais de semana e feriados, para que você nunca fique sem gravar.
+                    </p>
+                </div>
+                <!-- Vantagem 3: Tecnologia de Ponta -->
+                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition duration-300">
+                    <div class="text-5xl text-yellow-accent mb-6">
+                        <!-- Ícone de engrenagem (SVG ou Emoji) -->
+                        ⚙️
                     </div>
-                    <!-- Cartão de Ícone: Velocidade -->
-                    <div class="bg-light-bg p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 border-t-4 border-primary-blue">
-                        <i class="fas fa-tachometer-alt text-4xl text-primary-blue mb-3"></i>
-                        <h3 class="text-lg font-semibold text-dark-text">Velocidade</h3>
-                    </div>
-                    <!-- Cartão de Ícone: Diversidade de Vozes -->
-                    <div class="bg-light-bg p-6 rounded-xl shadow-md text-center transform hover:-translate-y-2 transition duration-300 border-t-4 border-primary-green">
-                        <i class="fas fa-users text-4xl text-primary-green mb-3"></i>
-                        <h3 class="text-lg font-semibold text-dark-text">Diversidade de Vozes</h3>
-                    </div>
+                    <h3 class="text-2xl font-semibold text-primary mb-4">Tecnologia de Ponta</h3>
+                    <p class="text-neutral-gray text-lg">
+                        Plataforma moderna, dinâmica e de fácil operação, tornando sua experiência de pedido e acompanhamento a mais simples e agradável possível.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Serviços -->
-    <section id="servicos" class="py-20 bg-medium-gray">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-text">Nossos Serviços</h2>
-                <div class="w-24 h-1 brand-gradient-new mx-auto mt-4 rounded"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Bloco: Locução em Off -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:-translate-y-2 transition duration-300 border-l-4 border-primary-blue">
-                    <div>
-                        <h3 class="text-2xl font-bold text-dark-text mb-4">Locução em Off</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            Locução realizada por um de nossos locutores e enviada ao cliente sem tratamento ou edição. Pode conter repetições ou erros que devem ser corrigidos na edição. Recomendado para revendedores, produtores de áudio e vídeo, emissoras de rádio e TV.
-                        </p>
-                        <p class="text-gray-700 font-semibold mb-2">Vantagem:</p>
-                        <ul class="list-disc list-inside text-gray-600 mb-6">
-                            <li>Entrega em até 10 minutos após o pedido.</li>
-                        </ul>
-                    </div>
-                    <div class="flex flex-col sm:flex-row items-center justify-center mt-auto">
-                        <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition duration-300" aria-label="Comprar Locução em Off">
-                            Comprar agora <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Bloco: Produção Completa -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:-translate-y-2 transition duration-300 border-l-4 border-primary-green">
-                    <div>
-                        <h3 class="text-2xl font-bold text-dark-text mb-4">Produção Completa</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            Serviço já finalizado, com locução, trilha sonora e efeitos. O material é entregue pronto para uso imediato. Ao contratar a Produção Completa, o cliente também receberá a locução em off.
-                        </p>
-                        <p class="text-gray-700 font-semibold mb-2">Vantagem:</p>
-                        <ul class="list-disc list-inside text-gray-600 mb-6">
-                            <li>Entrega no mesmo dia, em até 5 horas.</li>
-                        </ul>
-                    </div>
-                    <div class="flex flex-col sm:flex-row items-center justify-center mt-auto">
-                        <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition duration-300" aria-label="Solicitar Produção Completa">
-                            Solicitar agora <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Bloco: Vinhetas (Off e Produzidas) -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:-translate-y-2 transition duration-300 border-l-4 border-primary-blue">
-                    <div>
-                        <h3 class="text-2xl font-bold text-dark-text mb-4">Vinhetas (Off e Produzidas)</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            Áudios curtos e marcantes, com até 10 segundos, para identificar sua marca, programa ou rádio. Disponíveis tanto em off (somente voz) quanto com produção completa (trilha e efeitos).
-                        </p>
-                    </div>
-                    <div class="mt-auto text-center">
-                        <a href="#precos" class="brand-gradient-new brand-gradient-new-hover text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition duration-300" aria-label="Ver Preços de Vinhetas">
-                            Ver Preços <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Bloco: Narração & URA Telefônica -->
-                <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-between transform hover:-translate-y-2 transition duration-300 border-l-4 border-primary-green">
-                    <div>
-                        <h3 class="text-2xl font-bold text-dark-text mb-4">Narração & URA Telefônica</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            Vozes profissionais para vídeos institucionais, documentários, audiobooks, treinamentos e para sistemas de URA (Unidade de Resposta Audível) telefônica. Garanta clareza e credibilidade.
-                        </p>
-                    </div>
-                    <div class="mt-auto text-center">
-                        <a href="#atendimento" class="brand-gradient-new brand-gradient-new-hover text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition duration-300" aria-label="Solicitar Orçamento para Narração ou URA">
-                            Peça um Orçamento <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <!-- Seção: Conheça nosso Banco de Vozes (CTA) - Altura aumentada -->
+    <section class="py-24 bg-primary text-white"> <!-- py-24 para aumentar a altura -->
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">🗣️ Encontre a Voz Perfeita para seu Projeto!</h2>
+            <h3 class="text-2xl mb-6">Nosso Banco de Vozes com mais de 300 talentos esperando por você.</h3>
+            <p class="text-lg max-w-3xl mx-auto mb-10">
+                Com vozes masculinas, femininas, infantis e nos mais variados estilos, de locutores de todo o Brasil. Qualidade e diversidade para cada tipo de anúncio, jingle ou vinheta.
+            </p>
+            <a href="https://paineldegravacao.com.br/comerciaistop/lista-locutores" target="_blank" class="bg-yellow-accent text-primary px-8 py-4 rounded-full font-bold text-xl hover:bg-yellow-400 transition duration-300 shadow-lg">
+                Conheça Nosso Banco de Vozes
+            </a>
         </div>
     </section>
 
-    <!-- Seção de Preços -->
-    <section id="precos" class="py-20 bg-light-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-text">Nossos Preços</h2>
-                <div class="w-24 h-1 brand-gradient-new mx-auto mt-4 rounded"></div>
-                <p class="text-gray-700 mt-4 max-w-2xl mx-auto">Conheça nossos planos transparentes e encontre a solução ideal para o seu projeto.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <!-- Preço - Locução em Off -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center transform hover:-translate-y-2 transition duration-300">
-                    <h3 class="text-2xl font-bold text-dark-text mb-4">Locução em Off</h3>
-                    <p class="text-4xl font-extrabold text-primary-blue mb-2">R$ 10,00</p>
-                    <p class="text-gray-700 mb-6">por fração de 40 segundos de áudio</p>
-                    <ul class="text-gray-700 text-left list-disc list-inside mb-6">
-                        <li>Somente a voz limpa e sem edição.</li>
-                        <li>Ideal para produtores com equipe própria.</li>
+    <!-- Seção: Nossos Preços e Pacotes -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-primary mb-4">💰 Nossos Preços e Pacotes</h2>
+            <p class="text-lg text-center text-neutral-gray mb-12 max-w-3xl mx-auto">Conheça nossos planos flexíveis e encontre a solução perfeita para o seu orçamento e suas necessidades de áudio.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Pacote: Locução Off -->
+                <div class="bg-light-gray p-8 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition duration-300">
+                    <h3 class="text-3xl font-bold text-primary mb-6">Locução Off</h3>
+                    <p class="text-neutral-gray text-lg mb-8">Somente a voz do locutor, sem edição profissional ou trilha musical. Perfeito para quem já tem sua própria equipe de edição.</p>
+                    <ul class="text-2xl font-semibold text-gray-700 space-y-4 mb-8 w-full">
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>1 OFF:</span> <span class="text-primary font-bold">R$ 15,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>10 OFFS:</span> <span class="text-primary font-bold">R$ 120,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>20 OFFS:</span> <span class="text-primary font-bold">R$ 160,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>30 OFFS:</span> <span class="text-primary font-bold">R$ 200,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>50 OFFS:</span> <span class="text-primary font-bold">R$ 250,00</span></li>
                     </ul>
-                    <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition duration-300" aria-label="Fazer Pedido de Locução em Off">Fazer Pedido</a>
+                    <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="bg-button-main text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-red-700 transition duration-300 shadow-xl w-full">
+                        Cadastre-se para Comprar OFF
+                    </a>
                 </div>
 
-                <!-- Preço - Produção Completa -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center transform hover:-translate-y-2 transition duration-300">
-                    <h3 class="text-2xl font-bold text-dark-text mb-4">Produção Completa</h3>
-                    <p class="text-4xl font-extrabold text-primary-green mb-2">R$ 30,00</p>
-                    <p class="text-gray-700 mb-6">por fração de 40 segundos de áudio</p>
-                    <ul class="text-gray-700 text-left list-disc list-inside mb-6">
-                        <li>Locução, trilha sonora e efeitos.</li>
-                        <li>Material pronto para uso imediato.</li>
-                        <li>Inclui a locução em off.</li>
+                <!-- Pacote: Produção (Áudio Completo) -->
+                <div class="bg-light-gray p-8 rounded-xl shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition duration-300">
+                    <h3 class="text-3xl font-bold text-primary mb-6">Produção Completa</h3>
+                    <p class="text-neutral-gray text-lg mb-8">Áudio gravado e editado profissionalmente, com voz, trilha, efeitos e finalização pronta para uso imediato. Ideal para quem busca uma solução completa.</p>
+                    <ul class="text-2xl font-semibold text-gray-700 space-y-4 mb-8 w-full">
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>1 Spot:</span> <span class="text-primary font-bold">R$ 30,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>10 Spots:</span> <span class="text-primary font-bold">R$ 230,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>20 Spots:</span> <span class="text-primary font-bold">R$ 300,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>30 Spots:</span> <span class="text-primary font-bold">R$ 400,00</span></li>
+                        <li class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm"><span>40 Spots:</span> <span class="text-primary font-bold">R$ 500,00</span></li>
                     </ul>
-                    <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition duration-300" aria-label="Fazer Pedido de Produção Completa">Fazer Pedido</a>
-                </div>
-
-                <!-- Preço - Vinheta Off -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center transform hover:-translate-y-2 transition duration-300">
-                    <h3 class="text-2xl font-bold text-dark-text mb-4">Vinheta Off</h3>
-                    <p class="text-4xl font-extrabold text-primary-blue mb-2">R$ 10,00</p>
-                    <p class="text-gray-700 mb-6">por 4 vinhetas (até 10 segundos)</p>
-                    <ul class="text-gray-700 text-left list-disc list-inside mb-6">
-                        <li>Vinhetas sem produção musical.</li>
-                        <li>Ideal para identificação rápida.</li>
-                        <li>Mesmo locutor para as 4 vinhetas.</li>
-                    </ul>
-                    <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition duration-300" aria-label="Fazer Pedido de Vinheta Off">Fazer Pedido</a>
-                </div>
-
-                <!-- Preço - Vinheta Produzida -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center transform hover:-translate-y-2 transition duration-300">
-                    <h3 class="text-2xl font-bold text-dark-text mb-4">Vinheta Produzida</h3>
-                    <p class="text-4xl font-extrabold text-primary-green mb-2">R$ 30,00</p>
-                    <p class="text-gray-700 mb-6">por 4 vinhetas (até 10 segundos)</p>
-                    <ul class="text-gray-700 text-left list-disc list-inside mb-6">
-                        <li>Vinhetas com trilha e efeitos.</li>
-                        <li>Destaque sua marca de forma profissional.</li>
-                        <li>Mesmo locutor para as 4 vinhetas.</li>
-                    </ul>
-                    <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-bold py-3 px-6 rounded-full shadow-md hover:shadow-lg transition duration-300" aria-label="Fazer Pedido de Vinheta Produzida">Fazer Pedido</a>
+                    <a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="bg-button-main text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-red-700 transition duration-300 shadow-xl w-full">
+                        Cadastre-se para Comprar Produção
+                    </a>
                 </div>
             </div>
-            <p class="mt-8 text-sm opacity-80 text-gray-700">
-                Observação: Vinhetas devem ter no máximo 10 segundos cada. A contagem de 4 vinhetas se aplica se forem com o mesmo locutor.
+            <p class="text-center text-neutral-gray text-lg mt-12 italic">
+                *Observação: Cada crédito corresponde a uma fração de 40 segundos de locução. Os pacotes de crédito com desconto têm prazo de validade, conforme destacado na área de compras do Painel de Gravação.
             </p>
         </div>
     </section>
 
-    <!-- Seção de Demonstrações de Voz (Botão para o link externo) -->
-    <section id="demonstracoes" class="py-20 bg-medium-gray">
-        <div class="container mx-auto px-6 text-center">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-text">Ouça nossas vozes</h2>
-                <div class="w-24 h-1 brand-gradient-new mx-auto mt-4 rounded"></div>
-                <p class="text-gray-700 mt-4 max-w-3xl mx-auto">Confira algumas das vozes disponíveis em nosso painel. Encontre a locução perfeita para o seu projeto!</p>
-            </div>
-            <div class="flex justify-center">
-                <a href="https://paineldegravacao.com.br/comerciaistop/lista-locutores" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-xl inline-block" aria-label="Acessar nosso Banco de Vozes">
-                    Acessar Banco de Vozes <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Tutoriais do Painel (Agora com link para playlist) -->
-    <section id="tutoriais" class="py-20 bg-light-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-text">Tutoriais do Painel</h2>
-                <div class="w-24 h-1 brand-gradient-new mx-auto mt-4 rounded"></div>
-                <p class="text-gray-700 mt-4 max-w-3xl mx-auto">Aprenda a utilizar nosso painel de gravação com tutoriais rápidos e fáceis. Acesse nossa playlist completa no YouTube!</p>
-            </div>
-            <div class="flex justify-center">
-                 <a href="https://youtube.com/playlist?list=PLetvR2Bv-YMk4nrY9EIargOHupwKv1fah&si=qR8hXaNb4WmOWgI-" target="_blank" class="brand-gradient-new brand-gradient-new-hover text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-xl inline-block" aria-label="Ver todos os Tutoriais no YouTube">
-                    Ver Todos os Tutoriais <i class="fab fa-youtube ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Depoimentos de Clientes -->
-    <section id="depoimentos" class="py-20 bg-medium-gray">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-text">O que dizem sobre nós</h2>
-                <div class="w-24 h-1 brand-gradient-new mx-auto mt-4 rounded"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Depoimento 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition duration-300">
-                    <i class="fas fa-quote-left text-primary-blue text-3xl mb-4"></i>
-                    <p class="text-lg italic text-gray-700 mb-6">"Encomendei uma locução e em menos de 10 minutos estava no meu e-mail. Qualidade impressionante!"</p>
-                    <p class="font-semibold text-dark-text">- Carlos Mendes, Agência Publicitária – SP</p>
+    <!-- Seção: Depoimentos (Carrossel) -->
+    <section class="py-16 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-primary mb-4">💬 O Que Nossos Clientes Dizem</h2>
+            <p class="text-lg text-center text-neutral-gray mb-12 max-w-3xl mx-auto">Veja como a Comerciais Top está ajudando empresas e profissionais a alcançarem resultados incríveis.</p>
+            <div class="carousel-container relative bg-white rounded-xl shadow-lg p-6 md:p-10 max-w-4xl mx-auto">
+                <div class="carousel-inner flex">
+                    <!-- Depoimento 1 -->
+                    <div class="carousel-item text-center">
+                        <p class="text-xl md:text-2xl italic text-neutral-gray mb-6">
+                            "A Comerciais Top transformou a forma como produzimos nossos spots. A agilidade e a qualidade dos locutores são incomparáveis. Recomendo a todos os produtores!"
+                        </p>
+                        <p class="text-lg font-semibold text-primary">- Ana Paula, Produtora de Vídeo</p>
+                    </div>
+                    <!-- Depoimento 2 -->
+                    <div class="carousel-item text-center">
+                        <p class="text-xl md:text-2xl italic text-neutral-gray mb-6">
+                            "Nunca mais fiquei sem voz para meus comerciais, mesmo nos feriados. A plataforma é intuitiva e o suporte é excelente. Parabéns à equipe!"
+                        </p>
+                        <p class="text-lg font-semibold text-primary">- Ricardo Silva, Dono de Comércio</p>
+                    </div>
+                    <!-- Depoimento 3 -->
+                    <div class="carousel-item text-center">
+                        <p class="text-xl md:text-2xl italic text-neutral-gray mb-6">
+                            "Precisava de uma locução off urgente e a Comerciais Top entregou em minutos. A variedade de vozes é impressionante. Serviço nota 10!"
+                        </p>
+                        <p class="text-lg font-semibold text-primary">- Juliana Costa, Agência de Marketing</p>
+                    </div>
                 </div>
-                <!-- Depoimento 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition duration-300">
-                    <i class="fas fa-quote-left text-primary-green text-3xl mb-4"></i>
-                    <p class="text-lg italic text-gray-700 mb-6">"Otimização de tempo e qualidade impecável. A Comerciais Top se tornou meu parceiro essencial para todas as campanhas."</p>
-                    <p class="font-semibold text-dark-text">- Juliana Costa, Produtora de Vídeo – RJ</p>
-                </div>
-                <!-- Depoimento 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition duration-300">
-                    <i class="fas fa-quote-left text-primary-blue text-3xl mb-4"></i>
-                    <p class="text-lg italic text-gray-700 mb-6">"Nunca vi tanta variedade de vozes e uma plataforma tão intuitiva. Recomendo a todos que precisam de locução profissional."</p>
-                    <p class="font-semibold text-dark-text">- Fernando Silva, Diretor de Rádio – MG</p>
-                </div>
-                <!-- Depoimento 4 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition duration-300">
-                    <i class="fas fa-quote-left text-primary-green text-3xl mb-4"></i>
-                    <p class="text-lg italic text-gray-700 mb-6">"Atendimento excelente e resultado que superou minhas expectativas. Parabéns à equipe da Comerciais Top!"</p>
-                    <p class="font-semibold text-dark-text">- Patrícia Lima, Empreendedora – PR</p>
-                </div>
-                <!-- Depoimento 5 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition duration-300">
-                    <i class="fas fa-quote-left text-primary-blue text-3xl mb-4"></i>
-                    <p class="text-lg italic text-gray-700 mb-6">"A agilidade na entrega da locução é um diferencial enorme. Otimiza muito o meu trabalho e a qualidade é sempre superior!"</p>
-                    <p class="font-semibold text-dark-text">- Mariane Rodrigues, Produtora de Eventos - SC</p>
-                </div>
-                <!-- Depoimento 6 -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition duration-300">
-                    <i class="fas fa-quote-left text-primary-green text-3xl mb-4"></i>
-                    <p class="text-lg italic text-gray-700 mb-6">"A plataforma 24h e o pagamento via PIX fazem toda a diferença. Consigo fazer meus pedidos a qualquer momento e receber rapidinho!"</p>
-                    <p class="font-semibold text-dark-text">- Roberto Almeida, Diretor Comercial - BA</p>
-                </div>
+                <!-- Botões de Navegação do Carrossel -->
+                <button class="carousel-button prev left-4 md:left-10 text-4xl p-2 rounded-full hover:bg-gray-700 transition-colors duration-300" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-button next right-4 md:right-10 text-4xl p-2 rounded-full hover:bg-gray-700 transition-colors duration-300" onclick="nextSlide()">&#10095;</button>
             </div>
         </div>
     </section>
 
-    <!-- Seção FAQ (Atualizada) -->
-    <section id="faq" class="py-20 bg-light-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark-text">Perguntas Frequentes</h2>
-                <div class="w-24 h-1 brand-gradient-new mx-auto mt-4 rounded"></div>
-                <p class="text-gray-700 mt-4 max-w-2xl mx-auto">Encontre respostas rápidas para as dúvidas mais comuns sobre nossos serviços e plataforma.</p>
-            </div>
-            <div class="max-w-3xl mx-auto space-y-8">
-                <!-- Item FAQ 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-1">
-                        1. O que é a plataforma Voz para Anúncio?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-1" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>É um sistema online especializado em gravação, edição e produção de áudios profissionais para fins comerciais, incluindo locuções off e vinhetas.</p>
-                    </div>
+    <!-- Seção: Contato -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">Entre em Contato Conosco!</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <div class="flex items-center text-xl md:text-2xl font-semibold">
+                    <span class="mr-3 text-yellow-accent">📞</span> WhatsApp: <a href="https://wa.me/+552796529832" target="_blank" class="ml-2 hover:underline">27 96529-832</a>
                 </div>
-                <!-- Item FAQ 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-2">
-                        2. Quais serviços são oferecidos?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-2" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <ul class="list-disc list-inside ml-4">
-                            <li>Gravação em Off (somente voz)</li>
-                            <li>Produção Comercial (voz + trilha + efeitos)</li>
-                            <li>Vinhetas (simples ou produzidas)</li>
-                            <li>Locução para URA Telefônica</li>
-                            <li>Narração Profissional</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Item FAQ 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-3">
-                        3. Qual a diferença entre Gravação em Off e Produção Comercial?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-3" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>A **Gravação em Off** é somente a voz do locutor, sem edição ou trilha. A **Produção Comercial** inclui voz, trilha sonora, efeitos e finalização profissional, sendo entregue pronta para uso.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-4">
-                        4. Como é feito o pagamento?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-4" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>A plataforma opera com **créditos pré-pagos**. Os pagamentos podem ser feitos via boleto, cartão de crédito/débito, transferência bancária ou PIX. Os créditos são liberados automaticamente após a confirmação do pagamento.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 5 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-5">
-                        5. Como é calculado o valor dos serviços?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-5" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>O valor é calculado por **fração de 40 segundos de gravação, que corresponde a 1 crédito**. Nosso sistema calcula automaticamente os créditos necessários conforme o texto que você insere no pedido. Vinhetas possuem um cálculo diferenciado, conforme detalhado na seção de preços.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 6 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-6">
-                        6. Posso pedir reembolso de créditos?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-6" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Sim. Você pode solicitar o reembolso de créditos via menu **"Devolução de Créditos"** na plataforma, em até 3 dias úteis após a entrega do áudio, se houver inconsistências comprovadas com o serviço contratado.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 7 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-7">
-                        7. Qual o prazo de entrega?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-7" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <ul class="list-disc list-inside ml-4">
-                            <li>**Locução em Off:** De 10 minutos a 5 horas, dependendo da disponibilidade do locutor.</li>
-                            <li>**Produções Completas:** Podem levar até 4 horas úteis após a gravação do off.</li>
-                            <li>**Vinhetas Produzidas:** Podem levar até 10 horas.</li>
-                        </ul>
-                        <p class="mt-2">Recomendamos sempre consultar o status do locutor na plataforma ao fazer seu pedido.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 8 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-8">
-                        8. Posso escolher um locutor fixo?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-8" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>A plataforma não garante a fidelização a um locutor específico em todos os pedidos, devido à rotatividade natural e à demanda da equipe. No entanto, você pode indicar sua preferência no pedido.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 9 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-9">
-                        9. Posso usar os áudios onde quiser?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-9" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Sim, você pode usar os áudios entregues desde que seja para o fim originalmente contratado (ex: veiculação em rádio, TV, redes sociais). **Não é permitido comercializar, alterar o conteúdo ou reutilizar o áudio para outros fins sem autorização prévia.**</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 10 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-10">
-                        10. O que acontece se o meu pedido tiver linguagem ofensiva ou ilegal?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-10" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Pedidos com conteúdo discriminatório, ofensivo, que incitem à violência ou que infrinjam qualquer lei serão **recusados**. Nesses casos, o usuário poderá ter a conta bloqueada, conforme nossos termos de uso.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 11 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-11">
-                        11. Minhas avaliações são públicas?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-11" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Sim, as avaliações feitas na plataforma são públicas. No entanto, elas devem ser verídicas, respeitosas e não conter linguagem ofensiva. Avaliações que não sigam essas diretrizes podem ser removidas e/ou gerar suspensão da conta.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 12 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-12">
-                        12. Como recebo os arquivos prontos?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-12" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Os arquivos prontos são enviados por **e-mail**, podem ser enviados via **WhatsApp** (se autorizado no pedido) e ficam disponíveis para download diretamente na sua área de cliente na **plataforma** por até 30 dias após a entrega.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 13 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-13">
-                        13. Posso solicitar correção de um áudio entregue com erro?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-13" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Sim. Caso o erro tenha sido cometido pelo locutor ou produtor da Comerciais Top, você pode solicitar a correção **gratuitamente** no prazo de até 3 dias úteis após o recebimento do áudio.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 14 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-14">
-                        14. Como faço para solicitar uma correção?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-14" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Acesse sua conta na plataforma, localize o pedido que deseja corrigir, clique na seta ao lado do seu nome e selecione **"Solicitar devolução"** ou **"Solicitar correção"**. Informe detalhadamente o problema e anexe o áudio, se necessário, para agilizar a análise.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 15 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-15">
-                        15. E se o erro no áudio for por texto incorreto que eu mesmo enviei?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-15" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Nestes casos, a correção será considerada um **novo pedido** e tarifada normalmente, pois o erro não foi de nossa parte. Por isso, é fundamental revisar bem o roteiro antes de enviar!</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 16 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-16">
-                        16. Posso pedir alterações como tom de voz ou mudar de locutor?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-16" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Sim, essas alterações são possíveis. No entanto, mudar o tom de voz, estilo ou solicitar um locutor diferente para um material já gravado **não é considerado correção**. Essas mudanças serão tratadas como um **novo pedido** e tarifadas de acordo.</p>
-                    </div>
-                </div>
-                <!-- Item FAQ 17 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <button class="faq-question w-full text-left flex justify-between items-center text-xl font-bold text-dark-text focus:outline-none" aria-expanded="false" aria-controls="faq-answer-17">
-                        17. A plataforma pode recusar uma solicitação de correção?
-                        <i class="fas fa-chevron-down faq-toggle-icon text-primary-blue"></i>
-                    </button>
-                    <div id="faq-answer-17" class="faq-answer mt-4 text-gray-700 leading-relaxed hidden" aria-hidden="true">
-                        <p>Sim. Uma solicitação de correção será recusada se o pedido não estiver de acordo com as condições dos nossos termos de uso ou se for feito após o prazo permitido de 3 dias úteis após a entrega do áudio.</p>
-                    </div>
+                <div class="flex items-center text-xl md:text-2xl font-semibold">
+                    <span class="mr-3 text-yellow-accent">📧</span> E-mail: <a href="mailto:gravadoracomerciaistop@gmail.com" class="ml-2 hover:underline">gravadoracomerciaistop@gmail.com</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Seção de Atendimento -->
-    <section id="atendimento" class="py-20 bg-primary-blue text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16">Nosso Atendimento</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-10 max-w-4xl mx-auto">
-                <div class="flex flex-col items-center p-6 bg-blue-700 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
-                    <i class="fab fa-whatsapp text-5xl text-white mb-4"></i>
-                    <h3 class="text-xl font-semibold text-white mb-2">WhatsApp</h3>
-                    <a href="https://wa.me/5527996529832?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Comerciais%20Top!" target="_blank" class="text-white hover:text-gray-200 transition duration-300 text-lg" aria-label="Enviar mensagem WhatsApp para 27 99652-9832">27 99652-9832</a>
-                </div>
-                <div class="flex flex-col items-center p-6 bg-blue-700 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
-                    <i class="fas fa-envelope text-5xl text-white mb-4"></i>
-                    <h3 class="text-xl font-semibold text-white mb-2">E-mail</h3>
-                    <a href="mailto:gravadoracomerciaistop@gmail.com" class="text-white hover:text-gray-200 transition duration-300 text-lg" aria-label="Enviar e-mail para gravadoracomerciaistop@gmail.com">gravadoracomerciaistop@gmail.com</a>
-                </div>
-            </div>
-            <p class="text-lg text-white mt-12 font-medium">Horário de atendimento: Segunda a sexta-feira, das 08h às 18h</p>
-        </div>
-    </section>
-
-    <!-- Seção Nossa Localização -->
-    <section id="localizacao" class="py-20 bg-very-dark-gray text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16">Nossa Localização e Equipe</h2>
-            <div class="max-w-4xl mx-auto text-lg leading-relaxed text-gray-300">
-                <p class="mb-4">Nosso escritório principal está localizado na cidade de **Brejetuba, no estado do Espírito Santo**.</p>
-                <p>Nossa equipe de locutores é diversificada, com profissionais talentosos de **várias partes do Brasil**, cada um com seus próprios estúdios, garantindo uma ampla variedade de vozes e estilos para atender a todas as suas necessidades.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/552796529832?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Comerciais%20Top!" target="_blank" class="whatsapp-float" aria-label="Abrir conversa no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <!-- Rodapé -->
-    <footer class="bg-dark-gray border-t border-gray-700 py-8">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-            <div class="mb-4 md:mb-0 text-center md:text-left text-gray-400">
-                <a href="#inicio" class="text-xl font-bold text-white tracking-wider mb-2 block" aria-label="Voltar ao início da página">Comerciais <span class="text-primary-blue">Top</span></a>
-                <p>&copy; 2024 Comerciais Top. Todos os direitos reservados.</p>
-                <p class="mt-2 text-sm text-gray-500">Qualidade e agilidade para todo o Brasil.</p>
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-yellow-accent">Comerciais Top</h4>
+                    <p class="text-neutral-gray text-sm">Sua parceira em locução profissional e produção de áudio de alta qualidade, disponível 24h por dia.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-yellow-accent">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://paineldegravacao.com.br/comerciaistop/lista-locutores" target="_blank" class="text-neutral-gray hover:text-white transition duration-300">Nossas Vozes</a></li>
+                        <li><a href="https://comerciaistop.com.br/servicos" class="text-neutral-gray hover:text-white transition duration-300">Serviços</a></li>
+                        <li><a href="https://comerciaistop.com.br/termos" class="text-neutral-gray hover:text-white transition duration-300">Termos de Uso</a></li>
+                        <li><a href="https://comerciaistop.com.br/precos" class="text-neutral-gray hover:text-white transition duration-300">Preços</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-yellow-accent">Informações Legais</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://comerciaistop.com.br/privacidade" class="text-neutral-gray hover:text-white transition duration-300">Política de Privacidade</a></li>
+                        <li><a href="https://comerciaistop.com.br/faq" class="text-neutral-gray hover:text-white transition duration-300">Dúvidas Frequentes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-yellow-accent">Conecte-se</h4>
+                    <p class="text-neutral-gray">Siga-nos nas redes sociais e fique por dentro das novidades!</p>
+                    <div class="flex justify-center gap-4 mt-4 text-2xl">
+                        <!-- Ícones de Redes Sociais - Placeholder (pode ser substituído por SVGs de Font Awesome ou similares) -->
+                        <a href="#" class="text-neutral-gray hover:text-white transition duration-300" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.084 3.708 9.276 8.583 9.92V14h-2.5v-3h2.5V8.5c0-2.5 1.5-3.875 3.75-3.875 1.083 0 2.017.083 2.292.125V7h-1.5c-1.167 0-1.417.583-1.417 1.167V11h3.5l-.5 3h-3V21.92C18.292 21.276 22 17.084 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        </a>
+                        <a href="#" class="text-neutral-gray hover:text-white transition duration-300" aria-label="Instagram">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2A2.88 2.88 0 0 0 4.2 7.8v8.4c0 1.3 1.1 2.4 2.4 2.4h8.4c1.3 0 2.4-1.1 2.4-2.4V7.8c0-1.3-1.1-2.4-2.4-2.4H7.6zm9.6 9a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8zm-6 2.6A3.6 3.6 0 1 0 12 10.4a3.6 3.6 0 0 0-3.6 3.6zm3.6 1.8a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6z"/></svg>
+                        </a>
+                        <a href="#" class="text-neutral-gray hover:text-white transition duration-300" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.236 7.469c-.198-.737-.768-1.307-1.505-1.505C15.82 7 12 7 12 7s-3.82 0-4.731.037c-.737.198-1.307.768-1.505 1.505C5 10.18 5 12 5 12s0 1.82.037 2.731c.198.737.768 1.307 1.505 1.505C8.18 17 12 17 12 17s3.82 0 4.731-.037c.737-.198 1.307-.768 1.505-1.505C19 13.82 19 12 19 12s0-1.82-.037-2.731zM10 14.5v-5l5 2.5-5 2.5z"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="flex justify-center space-x-6 mb-4 md:mb-0">
-                <a href="https://www.instagram.com/comerciais.top/" target="_blank" class="text-gray-400 hover:text-white transition" aria-label="Visitar nosso Instagram"><i class="fab fa-instagram fa-lg"></i></a>
-                <a href="https://wa.me/552796529832" target="_blank" class="text-gray-400 hover:text-white transition" aria-label="Falar conosco via WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
-            </div>
-            <div class="text-center md:text-right text-sm text-gray-400">
-                <p class="font-semibold mb-2">Links Úteis:</p>
-                <ul class="space-y-1">
-                    <li><a href="https://paineldegravacao.com.br/comerciaistop/cadastro" target="_blank" class="hover:text-primary-blue transition">Cadastro</a></li>
-                    <li><a href="https://paineldegravacao.com.br/comerciaistop/login" target="_blank" class="hover:text-primary-blue transition">Acessar Painel</a></li>
-                    <li><a href="https://www.instagram.com/comerciais.top/" target="_blank" class="hover:text-primary-blue transition">Instagram</a></li>
-                </ul>
+            <div class="border-t border-gray-700 pt-8 mt-8">
+                <p class="text-neutral-gray text-sm">&copy; <span id="current-year"></span> Comerciais Top. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/+552796529832" target="_blank" class="whatsapp-button flex items-center justify-center p-4">
+        <!-- Ícone do WhatsApp em SVG para garantir compatibilidade e estilo -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.5 3.42 1.46 4.87l-1.52 5.57 5.75-1.51c1.33.73 2.85 1.12 4.22 1.12 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 1.6c4.58 0 8.31 3.73 8.31 8.31 0 4.58-3.73 8.31-8.31 8.31-.96 0-1.89-.2-2.76-.56l-3.07.8 1.05-3.86c-.75-1.09-1.16-2.39-1.16-3.79 0-4.58 3.73-8.31 8.31-8.31zm-1.88 2.87c-.15 0-.3.02-.45.04-.37.07-.63.2-.8.36-.16.16-.27.35-.35.56-.08.21-.13.44-.13.67 0 .23.04.46.13.68.08.21.2.4.35.56.16.16.33.27.53.35.2.08.4.13.6.13.2 0 .4-.03.6-.08.2-.05.4-.1.57-.17.17-.07.33-.17.48-.27.15-.1.28-.22.4-.35.12-.13.23-.28.31-.44.09-.16.16-.33.2-.5.04-.17.06-.34.06-.52 0-.25-.05-.48-.15-.7-.1-.21-.24-.38-.42-.51-.18-.13-.38-.2-.6-.2-.22 0-.42.06-.59.18-.17.12-.32.28-.43.47l-.14.23c-.1-.13-.23-.27-.37-.4-.14-.14-.3-.27-.48-.38-.18-.12-.39-.18-.6-.18zM12.04 14.6c-.15 0-.3 0-.45.03-.37.07-.63.2-.8.36-.16.16-.27.35-.35.56-.08.21-.13.44-.13.67 0 .23.04.46.13.68.08.21.2.4.35.56.16.16.33.27.53.35.2.08.4.13.6.13.2 0 .4-.03.6-.08.2-.05.4-.1.57-.17.17-.07.33-.17.48-.27.15-.1.28-.22.4-.35.12-.13.23-.28.31-.44.09-.16.16-.33.2-.5.04-.17.06-.34.06-.52 0-.25-.05-.48-.15-.7-.1-.21-.24-.38-.42-.51-.18-.13-.38-.2-.6-.2-.22 0-.42.06-.59.18-.17.12-.32.28-.43.47l-.14.23c-.1-.13-.23-.27-.37-.4-.14-.14-.3-.27-.48-.38-.18-.12-.39-.18-.6-.18z"/>
+        </svg>
+    </a>
+
     <script>
-        // Funcionalidade do menu mobile (hambúrguer)
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+        // Lógica do carrossel de depoimentos
+        let currentIndex = 0;
+        const carouselInner = document.querySelector('.carousel-inner');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const totalItems = carouselItems.length;
 
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    // Alterna o atributo aria-expanded para acessibilidade
-                    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-                    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-                });
+        // Função para atualizar a posição do carrossel
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
 
-                // Fecha o menu mobile ao clicar em um link
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                            mobileMenuButton.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                });
-            }
-        });
+        // Função para avançar para o próximo slide
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }
 
-        // Funcionalidade do acordeão da FAQ
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqAnswer = button.nextElementSibling;
-                const icon = button.querySelector('.faq-toggle-icon');
-                const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+        // Função para voltar para o slide anterior
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        }
 
-                // Fecha todas as outras respostas abertas, exceto a clicada
-                document.querySelectorAll('.faq-answer').forEach(answer => {
-                    if (answer !== faqAnswer && !answer.classList.contains('hidden')) {
-                        answer.classList.add('hidden');
-                        answer.previousElementSibling.querySelector('.faq-toggle-icon').classList.remove('rotated');
-                        answer.previousElementSibling.setAttribute('aria-expanded', 'false');
-                        answer.setAttribute('aria-hidden', 'true');
-                    }
-                });
+        // Avanço automático do carrossel a cada 5 segundos
+        setInterval(nextSlide, 5000);
 
-                // Alterna a visibilidade e os atributos de acessibilidade da resposta clicada
-                faqAnswer.classList.toggle('hidden');
-                icon.classList.toggle('rotated');
-                button.setAttribute('aria-expanded', !isExpanded);
-                faqAnswer.setAttribute('aria-hidden', isExpanded);
-            });
-        });
+        // Atualiza o ano no rodapé automaticamente
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
-
 </body>
 </html>
